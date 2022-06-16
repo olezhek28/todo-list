@@ -4,13 +4,13 @@ import {Container} from "semantic-ui-react";
 import ToDoList from "./to_do_list";
 
 function App(){
-    return{
+    return(
         <div>
            <Container>
               <ToDoList />
            </Container>
         </div>
-    };
+    );
 }
 
 export default App;

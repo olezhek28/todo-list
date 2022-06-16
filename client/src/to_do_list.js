@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import axios from "axios";
-import {Card, Header, Form, Input, Icon} from "semantic-ui-react";
+import {Card, Header, Form, Input, Icon, Button} from "semantic-ui-react";
 
 let endPoint = "http://localhost:9000"
 
@@ -63,7 +63,14 @@ class ToDoList extends Component{
 
                                     <Card.Meta textAlign="right">
                                         <Icon
-                                            name="check circle"
+                                            name="done"
+                                            color="green"
+                                            onClick={() => this.doneTask(item._id)}
+                                        />
+                                        <span style={{paddingRight: 10}}>Done</span>
+
+                                        <Icon
+                                            name="undone"
                                             color="blue"
                                             onClick={() => this.undoneTask(item._id)}
                                         />
@@ -123,7 +130,7 @@ class ToDoList extends Component{
     }
 
     render(){
-        return{
+        return(
         <div>
             <div className="row">
                 <Header className="header" as="h2" color="yellow">
@@ -140,7 +147,7 @@ class ToDoList extends Component{
                     fluid
                     placeholder="Create task"
                     />
-                    {/*<Button>Create Task</Button>*/}
+                    {<Button>Create Task</Button>}
                 </Form>
             </div>
             <div className="row">
@@ -148,8 +155,8 @@ class ToDoList extends Component{
             </div>
 
         </div>
-        };
-    }
+        );
+    };
 }
 
 export default ToDoList;
